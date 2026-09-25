@@ -91,4 +91,5 @@ graph TD
     style Dedicated_Zone fill:#f9f6ef,stroke:#d97706,stroke-width:2px
     style Shared_Zone fill:#f3f4f6,stroke:#4b5563,stroke-dasharray: 5 5
 
-![멀티 테넌트 아키텍처 구조도](./제목 없는 다이어그램.drawio.png)
+<img width="1222" height="502" alt="제목 없는 다이어그램 drawio" src="https://github.com/user-attachments/assets/20c58e6b-37e7-4c3e-9849-0dac1038fc78" />
+
