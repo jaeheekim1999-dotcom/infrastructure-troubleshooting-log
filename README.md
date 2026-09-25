@@ -93,3 +93,4 @@ graph TD
 
 <img width="1222" height="502" alt="제목 없는 다이어그램 drawio" src="https://github.com/user-attachments/assets/20c58e6b-37e7-4c3e-9849-0dac1038fc78" />
 
+https://github.com/jaeheekim1999-dotcom/infrastructure-troubleshooting-log/blob/main/%EC%A0%9C%EB%AA%A9%20%EC%97%86%EB%8A%94%20%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio.png?raw=true
