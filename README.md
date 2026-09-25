@@ -61,3 +61,32 @@ graph TD
 1. **아키텍처 가치 입증:** 비록 인프라 비용이 추가되는 트레이드오프가 발생했으나, 보안 격리와 고가용성(HA)을 동시에 달성하여 기업 간 신뢰성 확보.
 2. **부하 대응력 강화:** 인프라 자원 증설(하드디스크)을 통해 대규모 동시 요청 환경에서도 레이턴시를 최소화하고 안정적인 데이터 파이프라인 유지.
 3. **SA(솔루션 아키텍트) 관점의 역량:** 단순 기능 구현을 넘어, 비즈니스 요구사항(보안/비용)과 기술적 한계(부하/지연) 사이에서 최적의 타협점을 도출하는 아키텍처 의사결정 역량 증명.
+
+# 🏢 Multi-Tenant API Isolation Architecture
+
+```mermaid
+graph TD
+    %% 사용자 및 테넌트 영역
+    ClientG["Tenant G 사용자 (보안·고가용성 중시)"] -->|전용 요청| Gateway["API Gateway / Load Balancer"]
+    ClientM["Tenant M 사용자 (대량 데이터 동시 수집)"] -->|공용/전용 요청| Gateway
+    ClientA["Tenant A 사용자"] -->|공용 요청| Gateway
+
+    %% 공용 인프라 영역 (Shared Zone)
+    subgraph Shared_Zone [공용 인프라 영역 (Shared Zone)]
+        Gateway --> SharedAPI["공용 REST API 모듈"]
+        SharedAPI --> SharedDB[("공용 데이터베이스")]
+    end
+
+    %% G사 전용 격리 영역 (Dedicated Zone)
+    subgraph Dedicated_Zone [G사 전용 격리 영역 (Dedicated Zone - Fault Isolation)]
+        Gateway --> DedicatedAPI["G사 전용 REST API 모듈"]
+        DedicatedAPI --> DedicatedDisk[("하드디스크 증설 (부하/병목 트러블슈팅)")]
+        DedicatedDisk --> DedicatedDB[("G사 전용 가상 장비 / DB")]
+    end
+
+    %% M사의 데이터 수집 및 트러블슈팅 흐름
+    ClientM -.->|G사 전용 서버로 동시 데이터 수집 및 부하 분산 검토| DedicatedAPI
+
+    %% 스타일 적용
+    style Dedicated_Zone fill:#f9f6ef,stroke:#d97706,stroke-width:2px
+    style Shared_Zone fill:#f3f4f6,stroke:#4b5563,stroke-dasharray: 5 5
