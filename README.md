@@ -90,4 +90,4 @@ graph TD
     %% 스타일 적용
     style Dedicated_Zone fill:#f9f6ef,stroke:#d97706,stroke-width:2px
     style Shared_Zone fill:#f3f4f6,stroke:#4b5563,stroke-dasharray: 5 5
-<img width="1222" height="502" alt="제목 없는 다이어그램 drawio" src="https://github.com/user-attachments/assets/5e247467-9f8f-475e-af95-d8c2046e74b2" />
+<img width="1222" height="502" alt="제목 없는 다이어그램 drawio" src="https://github.com/user-attachments/assets/7da28618-1d4d-4402-a29d-ab86c459c3a9" />
