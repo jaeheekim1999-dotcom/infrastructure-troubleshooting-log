@@ -90,4 +90,4 @@ graph TD
     %% 스타일 적용
     style Dedicated_Zone fill:#f9f6ef,stroke:#d97706,stroke-width:2px
     style Shared_Zone fill:#f3f4f6,stroke:#4b5563,stroke-dasharray: 5 5
-<img src="https://raw.githubusercontent.com/jaeheekim1999-dotcom/infrastructure-troubleshooting-log/main/%EC%A0%9C%EB%AA%A9%20%EC%97%86%EB%8A%94%20%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio.png" width="100%">
+<img width="1222" height="502" alt="제목 없는 다이어그램 drawio" src="https://github.com/user-attachments/assets/5e247467-9f8f-475e-af95-d8c2046e74b2" />
