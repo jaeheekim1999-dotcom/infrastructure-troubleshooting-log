@@ -90,3 +90,5 @@ graph TD
     %% 스타일 적용
     style Dedicated_Zone fill:#f9f6ef,stroke:#d97706,stroke-width:2px
     style Shared_Zone fill:#f3f4f6,stroke:#4b5563,stroke-dasharray: 5 5
+
+![멀티 테넌트 아키텍처 구조도](./제목 없는 다이어그램.drawio.png)
