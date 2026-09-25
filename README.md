@@ -90,4 +90,4 @@ graph TD
     %% 스타일 적용
     style Dedicated_Zone fill:#f9f6ef,stroke:#d97706,stroke-width:2px
     style Shared_Zone fill:#f3f4f6,stroke:#4b5563,stroke-dasharray: 5 5
-<img width="1222" height="502" alt="아키텍처 구조도" src="https://github.com/jaeheekim1999-dotcom/infrastructure-troubleshooting-log/blob/main/%EC%A0%9C%EB%AA%A9%20%EC%97%86%EB%8A%94%20%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio.png?raw=true" />
+<img src="https://github.com/jaeheekim1999-dotcom/infrastructure-troubleshooting-log/blob/main/%EC%A0%9C%EB%AA%A9%20%EC%97%86%EB%8A%94%20%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio.png?raw=true" width="100%">
