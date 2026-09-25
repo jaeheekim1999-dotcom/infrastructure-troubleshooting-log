@@ -30,7 +30,33 @@ System architecture designs and troubleshooting logs
 * **트러블슈팅 및 해결:** 동시 요청에 따른 성능 저하와 병목 현상을 방지하기 위해 **시스템 하드디스크를 추가 증설(Scale-up/Resource Expansion)**하여 데이터 수집 부하를 안정적으로 분산시킴.
 
 ---
+# 🏢 Multi-Tenant API Isolation Architecture Diagram
 
+## 📊 아키텍처 구성도 (Architecture Topology)
+
+```mermaid
+graph TD
+    %% 사용자 및 테넌트 정의
+    ClientG[Tenant G 사용자] -->|전용 요청| Gateway[API Gateway / Load Balancer]
+    ClientM[Tenant M 사용자] -->|공용 요청| Gateway
+    ClientA[Tenant A 사용자] -->|공용 요청| Gateway
+
+    %% 라우팅 및 격리 영역
+    subgraph Shared_Zone [공용 인프라 영역 (Shared Zone)]
+        Gateway --> SharedAPI[공용 REST API 모듈]
+        SharedAPI --> SharedDB[(공용 데이터베이스)]
+    end
+
+    subgraph Dedicated_Zone [G사 전용 격리 영역 (Dedicated Zone - Fault Isolation)]
+        Gateway --> DedicatedAPI[G사 전용 REST API 모듈]
+        DedicatedAPI --> DedicatedDisk[(하드디스크 증설 / 전용 스토리지)]
+        DedicatedDisk --> DedicatedDB[(G사 전용 가상 장비 / DB)]
+    end
+
+    %% M사의 데이터 수집 경로 및 트러블슈팅 포인트
+    ClientM -.->|G사 서버 데이터 수집 요청| DedicatedAPI
+    style Dedicated_Zone fill:#f9f,stroke:#333,stroke-width:2px
+    style Shared_Zone fill:#fcfcfc,stroke:#333,stroke-dasharray: 5 5
 ## 🛠️ 3. 기술적 성과 및 배운 점 (Outcomes & Learnings)
 1. **아키텍처 가치 입증:** 비록 인프라 비용이 추가되는 트레이드오프가 발생했으나, 보안 격리와 고가용성(HA)을 동시에 달성하여 기업 간 신뢰성 확보.
 2. **부하 대응력 강화:** 인프라 자원 증설(하드디스크)을 통해 대규모 동시 요청 환경에서도 레이턴시를 최소화하고 안정적인 데이터 파이프라인 유지.
